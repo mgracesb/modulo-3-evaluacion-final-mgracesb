@@ -5,6 +5,7 @@ import fetchData from "../data/FetchData";
 import Filters from "./app-components/Filters";
 import CharacterList from "./app-components/CharacterList";
 import CharacterDetail from "./app-components/CharacterDetail";
+import Header from "./app-components/Header";
 
 class App extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class App extends React.Component {
       <div className="app">
         <Switch>
           <Route exact path="/">
+            <Header />
             <Filters inputHandler={this.inputHandler} inputValue={inputValue} />
 
             <CharacterList

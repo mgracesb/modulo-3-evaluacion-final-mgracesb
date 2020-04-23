@@ -1,19 +1,19 @@
 .charList {
-  width: 80%;
+  width: 90%;
   grid-column: 2/3;
-  grid-row: 2/3;
+  grid-row: 3/4;
   display: grid;
   grid-template-columns: repeat(3, 33%);
-  grid-gap: 1.5%;
   list-style: none;
+  justify-self: center;
 
   @include forTablet {
-    width: 90%;
-    grid-template-columns: repeat(4, 25%);
-    grid-gap: 1.5%;
+    grid-template-columns: repeat(4, 1fr);
   }
   @include forPc {
     width: 100%;
-    grid-template-columns: repeat(4, 20%);
+    padding-left: 10%;
+    padding-right: 10%;
+    grid-gap: 3%;
   }
 }

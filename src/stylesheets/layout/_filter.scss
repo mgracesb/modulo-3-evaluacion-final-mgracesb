@@ -1,0 +1,28 @@
+.form {
+  position: fixed;
+  top: 21%;
+  left: 37%;
+  @include forTablet {
+    left: 42%;
+  }
+  @include forPc {
+    left: 45%;
+  }
+
+  .filter {
+    width: 60%;
+    padding-left: 5%;
+    border-radius: 20px;
+    border: none;
+    height: 15px;
+    color: rgb(94, 94, 94);
+
+    @include forTablet {
+      width: 80%;
+      height: 20px;
+    }
+    @include forPc {
+      height: 25px;
+    }
+  }
+}

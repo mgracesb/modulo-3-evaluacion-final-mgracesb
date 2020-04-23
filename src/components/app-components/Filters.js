@@ -6,7 +6,7 @@ const Filter = (props) => {
     props.inputHandler(inputVal);
   };
   return (
-    <form>
+    <form className="form">
       <input
         value={props.inputValue}
         type="text"
