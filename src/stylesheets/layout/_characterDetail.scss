@@ -1,0 +1,152 @@
+.detailChar {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 10% 80% 10%;
+  background-color: black;
+
+  @include forTablet {
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 15% 70% 15%;
+  }
+
+  .closeDetail {
+    width: 80px;
+    height: 25px;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    justify-self: end;
+    text-align: right;
+    font-size: 20px;
+    font-family: $fontDefault;
+    padding-bottom: 1%;
+    transition: 300ms ease;
+
+    @include forPc {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .fa-chevron-left {
+      font-size: 13px;
+      color: $colorDefault;
+      padding-right: 5px;
+    }
+    .close {
+      color: white;
+      display: inline;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+    }
+  }
+  .charObj {
+    background-color: $colorDefault;
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 10% 30% 50% 10%;
+    grid-template-rows: 5% 50% 10% 5% 5% 5% 5%;
+
+    @include forTablet {
+      grid-template-columns: 15% 25% 45% 15%;
+      grid-template-rows: 5% 50% 8% 5% 5% 5% 5%;
+    }
+    .detailImg {
+      grid-row: 2/3;
+      grid-column: 2/4;
+      align-self: center;
+      justify-self: center;
+      width: 100%;
+      @include forTablet {
+        width: 85%;
+      }
+      @include forPc {
+        width: 90%;
+      }
+    }
+    .detailName {
+      grid-row: 3;
+      grid-column: 2/4;
+      font-family: $fontDefault;
+      font-size: 1.5rem;
+      align-self: center;
+      color: white;
+
+      @include forPc {
+        font-size: 2rem;
+        text-align: center;
+        align-self: center;
+      }
+    }
+
+    .subtitle1 {
+      grid-row: 4;
+      grid-column: 2/4;
+      @include forSubtitle;
+      @include forTabletSizing;
+      @include forPcSizing;
+    }
+
+    .detailSpecies {
+      grid-row: 4;
+      grid-column: 3/5;
+      @include forDetails;
+      @include forTabletSizing;
+      @include forPcSizing;
+    }
+
+    .subtitle2 {
+      grid-row: 5;
+      grid-column: 2/4;
+      @include forSubtitle;
+      @include forTabletSizing;
+      @include forPcSizing;
+    }
+
+    .detailOrigin {
+      grid-row: 5;
+      grid-column: 3/5;
+      @include forDetails;
+      @include forTabletSizing;
+      @include forPcSizing;
+    }
+
+    .subtitle3 {
+      grid-row: 6;
+      grid-column: 2/4;
+      @include forSubtitle;
+      @include forTabletSizing;
+      @include forPcSizing;
+    }
+
+    .detailEp {
+      grid-row: 6;
+      grid-column: 3/5;
+      @include forDetails;
+      @include forTabletSizing;
+      @include forPcSizing;
+    }
+    .subtitle4 {
+      grid-row: 7;
+      grid-column: 2/4;
+      @include forSubtitle;
+      @include forTabletSizing;
+      @include forPcSizing;
+    }
+    .alive {
+      background-image: url(../../images/alive.svg);
+      @include forStatus;
+      @include forPcStatus;
+    }
+
+    .dead {
+      background-image: url(../../images/dead.svg);
+      @include forStatus;
+      @include forPcSizing;
+    }
+  }
+}

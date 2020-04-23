@@ -1,0 +1,51 @@
+$tablet: 768px;
+$pc: 1024px;
+
+@mixin forTablet {
+  @media all and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin forPc {
+  @media all and (min-width: $pc) {
+    @content;
+  }
+}
+
+@mixin forSubtitle {
+  font-family: $fontDefault;
+  font-size: 0.9rem;
+  color: rgb(24, 24, 24);
+}
+
+@mixin forDetails {
+  font-family: $fontDefault;
+  font-weight: lighter;
+  font-size: 0.9rem;
+  color: rgb(24, 24, 24);
+}
+
+@mixin forStatus {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  grid-row: 7;
+  grid-column: 3/5;
+}
+
+@mixin forTabletSizing {
+  font-size: 1.2rem;
+}
+
+@mixin forPcSizing {
+  font-size: 1.5rem;
+  margin-left: 5%;
+}
+
+@mixin forPcStatus {
+  margin-left: 5%;
+  width: 30px;
+  height: 30px;
+}

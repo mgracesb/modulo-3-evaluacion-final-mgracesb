@@ -8,9 +8,10 @@ const Filter = (props) => {
   return (
     <form>
       <input
+        value={props.inputValue}
         type="text"
         className="filter"
-        placeholder="Search"
+        placeholder={props.inputValue !== "" ? props.inputValue : "Search"}
         onChange={filterName}
       />
     </form>

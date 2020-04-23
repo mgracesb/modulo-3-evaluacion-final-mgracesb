@@ -1,20 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
-  console.log("CharCard:", props);
+  const { name, image, episode, status, species, origin } = props.charObj;
+
   return (
-    <React.Fragment>
-      <img src="" alt="" className="" />
-      <h3>Name</h3>
-      <h4>Species</h4>
-      <p>desc.</p>
-      <h4>Origin</h4>
-      <p>desc.</p>
-      <h4>Episodes</h4>
-      <p>desc.</p>
-      <h4>Dead or Alive</h4>
-      <p>desc.</p>
-    </React.Fragment>
+    <div className="detailChar">
+      <Link to="/" className="closeDetail">
+        <i className="fas fa-chevron-left"></i>
+        <h5 className="close">return</h5>
+      </Link>
+      <div className="charObj">
+        <img src={image} alt={name} className="detailImg" />
+        <h3 className="detailName">{name}</h3>
+        <h4 className="subtitle1">Species</h4>
+        <p className="detailSpecies">{species}</p>
+        <h4 className="subtitle2">Origin</h4>
+        <p className="detailOrigin">{origin.name}</p>
+        <h4 className="subtitle3">Episodes</h4>
+        <p className="detailEp">{episode.length}</p>
+        <h4 className="subtitle4">Dead or Alive</h4>
+        <div className={status === "Alive" ? "alive" : "dead"}></div>
+      </div>
+    </div>
   );
 };
 

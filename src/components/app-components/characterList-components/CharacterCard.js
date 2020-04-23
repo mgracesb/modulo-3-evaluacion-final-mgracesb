@@ -4,9 +4,9 @@ const CharacterCard = (props) => {
   //   console.log("Card:", props);
   return (
     <React.Fragment>
-      <img src={props.image} alt={props.name} className="" />
-      <h2>{props.name}</h2>
-      <p className="species">{props.species}</p>
+      <img src={props.image} alt={props.name} className="cardImg" />
+      <h2 className="cardName">{props.name}</h2>
+      <p className="cardSpecies">{props.species}</p>
     </React.Fragment>
   );
 };

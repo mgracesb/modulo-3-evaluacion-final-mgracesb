@@ -1,0 +1,22 @@
+.cardImg {
+  width: 95%;
+  justify-self: center;
+
+  @include forPc {
+    width: 80%;
+  }
+}
+
+.cardName {
+  font-family: $fontDefault;
+  font-size: 0.9rem;
+  text-align: center;
+  color: white;
+}
+
+.cardSpecies {
+  font-family: $fontDefault;
+  font-size: 0.7rem;
+  text-align: center;
+  color: white;
+}

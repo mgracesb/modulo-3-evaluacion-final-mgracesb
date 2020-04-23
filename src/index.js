@@ -10,7 +10,7 @@ ReactDOM.render(
     <HashRouter>
       <Switch>
         {/* <Route exact path="/" component={Landing}></Route> */}
-        <Route exact path="/" component={App}></Route>
+        <Route path="/" component={App}></Route>
       </Switch>
     </HashRouter>
   </React.StrictMode>,
