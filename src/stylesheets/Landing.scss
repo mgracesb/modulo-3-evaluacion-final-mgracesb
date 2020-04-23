@@ -1,0 +1,661 @@
+$floor: #3a0943;
+$floor--accent: #8f29a8;
+$space: #100037;
+$border-color: #666;
+
+// RICK
+$rick--width: 7rem;
+$rick-head--height: 30vh;
+$rick-eye--size: $rick-head--height / 2.5;
+$rick-eye--pupilSize: $rick-eye--size * 0.5;
+$rick-body--height: 10vh;
+$rick-leg--height: 10vh;
+
+// clothes
+$rick-belt--height: 1rem;
+$rick--coat--length: $rick-body--height * 1.5;
+$collar--height: $rick-body--height * 0.3;
+$collar--width: $rick-body--height * 0.1;
+
+// Colors
+$rick--skin: #decdbd;
+$rick--hair: #b1daee;
+$rick--coat: #f5f5f5;
+$rick--shirt: #aae6e2;
+$rick--belt: #352909;
+$rick--pants: #7d6234;
+$rayGun--green: #7fff50;
+
+@mixin outline($fade: 0.1rem, $color: #000) {
+  box-shadow: 0 0 $fade $color;
+}
+
+@mixin border() {
+  border: solid 0.2rem $border-color;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-flow: column;
+}
+
+.rick {
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  &-hair {
+    position: absolute;
+    bottom: $rick-leg--height + $rick-body--height;
+    z-index: 1;
+    background: $rick--hair;
+    width: $rick-head--height * 1.1;
+    height: $rick-head--height * 1.2;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $rick-head--height * 1;
+      height: $rick-head--height * 1.15;
+      background: $rick--hair;
+      -webkit-transform: rotate(145deg);
+      -moz-transform: rotate(145deg);
+      -ms-transform: rotate(145deg);
+      -o-transform: rotate(145deg);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $rick-head--height * 1.1;
+      height: $rick-head--height * 1.1;
+      background: $rick--hair;
+      -webkit-transform: rotate(-65deg);
+      -moz-transform: rotate(-65deg);
+      -ms-transform: rotate(-65deg);
+      -o-transform: rotate(-65deg);
+    }
+  }
+  &-head {
+    z-index: 3;
+    position: relative;
+    @include outline(0.8rem);
+    background-color: $rick--skin;
+    height: $rick-head--height;
+    width: $rick-head--height;
+    border-radius: $rick-head--height / 3;
+    align-items: center;
+    &:before,
+    &:after {
+      // Ears
+      content: "";
+      z-index: 0;
+      position: absolute;
+      bottom: $rick-head--height * 0.2;
+      background-color: $rick--skin;
+      height: $rick-head--height * 0.15;
+      width: $rick-head--height * 0.15;
+      border-radius: $rick-head--height;
+    }
+    &:before {
+      right: 90%;
+      border-left: solid 0.2rem $border-color;
+    }
+    &:after {
+      left: 90%;
+      border-right: solid 0.2rem $border-color;
+    }
+
+    .eyebrow {
+      font-size: 15px;
+      background-color: $rick--hair;
+      width: $rick-head--height / 1.3;
+      height: $rick-head--height / 12;
+      border-radius: $rick-head--height;
+      margin-top: $rick-head--height / 5;
+      animation: browMove 5s ease-in-out alternate infinite;
+      transition: ease-in 300ms;
+      @include border;
+      &:hover {
+        //AQUIIII ------------------------------------------------------------///
+        transform: scale(2);
+      }
+    }
+    .eyes {
+      position: relative;
+      & > div:not(.nose) {
+        // Each eye
+        @include border;
+        background-color: #fff;
+        width: $rick-eye--size;
+        height: $rick-eye--size;
+        border-radius: $rick-head--height;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:before {
+          // Pupil
+          content: "*";
+          animation: lookAround 5s ease-in-out alternate infinite;
+          position: absolute;
+          top: 20%;
+          left: 35%;
+          font-size: $rick-eye--pupilSize;
+          height: 4rem;
+          line-height: 6rem;
+          text-align: center;
+          font-weight: bold;
+        }
+        &:after {
+          // Bag under eyes
+          content: "";
+          position: absolute;
+          top: 100%;
+          height: $rick-eye--size / 12;
+          width: $rick-eye--size / 2;
+          border-bottom: solid 0.2rem $border-color;
+          border-radius: 50%;
+        }
+      }
+    }
+    .nose {
+      position: absolute;
+      bottom: 0;
+      right: $rick-eye--size * 0.9;
+      transform: rotate(-20deg);
+      width: $rick-head--height * 0.1;
+      height: $rick-head--height * 0.3;
+      border-bottom: solid 0.3rem $border-color;
+      border-radius: 60%;
+      margin: $rick-head--height * -0.05 0;
+    }
+    .mouth {
+      position: relative;
+      border-top: solid 0.5rem darken($border-color, 10);
+      width: $rick-head--height / 2;
+      height: $rick-head--height / 9;
+      border-radius: 40%;
+      margin-top: $rick-head--height / 9;
+      &:before,
+      &:after {
+        // cheek wrinkles
+        content: "";
+        position: absolute;
+        display: block;
+        height: $rick-head--height / 15;
+        width: $rick-head--height / 15;
+        border-radius: 50%;
+      }
+      &:before {
+        right: 90%;
+        border-left: solid 0.2rem $border-color;
+      }
+      &:after {
+        left: 90%;
+        border-right: solid 0.2rem $border-color;
+      }
+    }
+  }
+  &-body {
+    z-index: 2;
+    overflow: visible;
+    height: $rick-body--height;
+    .arm {
+      @include border;
+      position: relative;
+      border-top: none;
+      width: $rick--width / 6;
+      height: $rick-body--height * 1.3;
+      margin-top: $rick-body--height * -0.1;
+      background-color: $rick--coat;
+      &:after {
+        // Hand
+        content: "";
+        @include border;
+        background-color: $rick--skin;
+        height: 1rem;
+        left: -0.3rem;
+        right: -0.3rem;
+        position: absolute;
+        top: 98%;
+        border-radius: 1rem;
+      }
+      .rayGun {
+        @include border;
+        position: absolute;
+        top: 100%;
+        right: 100%;
+        width: 1rem;
+        height: 4rem;
+        background-color: #ccc;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 0.1rem;
+        &:before {
+          content: "";
+          z-index: 5;
+          width: 0.5rem;
+          height: 0.8rem;
+          background-color: #000;
+          @include border;
+          position: absolute;
+          top: -0.5rem;
+          right: 70%;
+          transform: rotate(45deg);
+        }
+        &:after {
+          content: "";
+          @include border;
+          z-index: 5;
+          width: 2rem;
+          height: 1.2rem;
+          position: absolute;
+          top: 40%;
+          right: 100%;
+          border-top-left-radius: 1rem;
+          border-bottom-left-radius: 1rem;
+          background-image: radial-gradient(
+            circle closest-side,
+            lighten($rayGun--green, 35),
+            rgba($rayGun--green, 0.7)
+          );
+          animation: pulse 0.5s alternate infinite ease;
+        }
+      }
+      &.arm--right {
+        transform-origin: top;
+        animation: aimAround 5s ease-in-out alternate infinite;
+      }
+    }
+    .torso {
+      @include outline(0.4rem);
+      background-color: $rick--shirt;
+      height: $rick-body--height;
+      width: $rick--width;
+      position: relative;
+      .labCoat {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        &-side {
+          @include outline(1rem);
+          z-index: 10;
+          width: $rick--width * 0.3; // coat side widths
+          background-color: $rick--coat;
+          height: $rick--coat--length;
+          position: relative;
+          &:before {
+            // collar
+            content: "";
+            position: absolute;
+            background-color: lighten($rick--coat, 50);
+            width: $collar--width;
+            height: $collar--height;
+          }
+          &.labCoat--right {
+            border-bottom-right-radius: 100%;
+            &:before {
+              border-bottom-left-radius: 100%;
+              border-left: 0.2rem solid $border-color;
+              right: 0;
+            }
+          }
+          &.labCoat--left {
+            border-bottom-left-radius: 100%;
+            &:before {
+              border-bottom-right-radius: 100%;
+              border-right: 0.2rem solid $border-color;
+              left: 0;
+            }
+          }
+        }
+        &-opening {
+          // coat opening, showin undershirt
+          background-color: $rick--shirt;
+          flex-grow: 1;
+          height: $rick-body--height * 1;
+        }
+      }
+    }
+  }
+  &-belt {
+    z-index: 1;
+    background-color: $rick--belt;
+    height: $rick-belt--height;
+    width: $rick--width;
+    justify-content: center;
+    &:before {
+      content: "";
+      background-color: gold;
+      height: $rick-belt--height;
+      width: $rick-belt--height;
+    }
+  }
+  &-legs {
+    z-index: 1;
+    height: $rick-leg--height;
+    width: $rick--width;
+    justify-content: space-between;
+    border-top: solid $rick-leg--height / 8 $rick--pants;
+    position: relative;
+    &:after {
+      // coat tail behind him
+      content: "";
+      position: absolute;
+      top: 0;
+      right: $rick--width * 0.3;
+      left: $rick--width * 0.3;
+      height: $rick-body--height * 0.265;
+      background-color: darken($rick--coat, 30);
+      box-shadow: inset 0 0.5rem 1.2rem rgba(0, 0, 0, 0.8);
+    }
+    & > div {
+      background-color: $rick--pants;
+      height: $rick-leg--height;
+      width: $rick--width * 0.3;
+      justify-content: flex-end;
+      margin-top: -0.1rem;
+      .sock {
+        background-color: #fff;
+        height: 1rem;
+        width: 100%;
+        box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.6);
+      }
+      .shoe {
+        margin-top: -0.5rem;
+        background-color: #444;
+        height: 1rem;
+        width: $rick--width / 1.8;
+        padding: 0.5rem;
+        border-top-right-radius: 70%;
+        border-bottom: solid 0.2rem tan;
+      }
+    }
+  }
+  .rickLeg--right .shoe {
+    transform: rotateX(0deg) rotateY(180deg);
+    transform-origin: $rick--width * 0.15;
+  }
+}
+
+.stars {
+  min-height: 80vh;
+  background-color: $space;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 3rem; // bump Rick up, pull stars down to offset ground roundness
+  margin-bottom: -3rem;
+}
+
+.ground {
+  background-color: $floor;
+  min-height: calc(20vh + 3rem);
+  z-index: 1000;
+  position: relative;
+  border-top: solid 0.2rem $floor--accent;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  margin: 0 -50vw;
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 10vw;
+    top: 2rem;
+    left: 1rem;
+    height: 0.3rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0);
+    $numberOflines: 20; // How many lines on the ground
+    $axisLength--X: 100; // How many vw the star grid goes on the X Axis
+    $axisLength--Y: 20; // How many vh the star grid goes on the Y Axis
+    $opacity: random(5) * 0.1; // Randomize the opacity
+    $adjustedAccentColor: rgba($floor--accent, $opacity);
+    $boxShadow: 20rem 1rem 0 $adjustedAccentColor;
+
+    @for $n from 1 through $numberOflines {
+      $boxShadow: #{$boxShadow}
+        #{","}
+        #{random($axisLength--X)}vw
+        #{random($axisLength--Y)}vh
+        0
+        0
+        $adjustedAccentColor;
+    }
+
+    box-shadow: #{$boxShadow};
+  }
+}
+
+// Star stuff
+
+$solarSystemSpeedThroughUniverse: 100s;
+$numberOfStars: 100; // How many stars you want
+$axisLength--X: 200; // How many rems the star grid goes on the X Axis
+$axisLength--Y: 100; // How many rems the star grid goes on the Y Axis
+$starColor: #8eea3d; // color of the stars
+
+$base--size: 3.5rem;
+
+.stars {
+  z-index: 0;
+  &:before {
+    position: absolute;
+    width: $base--size;
+    height: $base--size;
+    content: "";
+    border-radius: $base--size / 2;
+  }
+  &:before {
+    // stars
+    $boxShadow: 70rem 40rem 0.08rem -0.02rem $starColor; // I just set up one initial star, then concatinate to it on the loop
+
+    // Loop through and create stars, we devide by two because we create two per loop. One on the -x axis, on on +x;
+    @for $n from 1 through $numberOfStars / 2 {
+      // Set variables for the star when we hit each loop
+      $scale: random(3) * -0.05; // Randomize the scale
+      $blur: random(1) / 50;
+      $opacity: random(8) * 0.1; // Randomize the opacity
+      $adjustedStarColor: rgba($starColor, $opacity);
+
+      // Here, we define two stars in each loop.. one for the -x margin (left of sun) and one for the right side (positive x)
+      // box-shadow: X-axis Y-axis Blur size (-0.01 -- -0.09) ,
+      $boxShadow: #{$boxShadow}
+          #{","} -#{random($axisLength--X)}rem
+          #{random($axisLength--Y)}rem
+          #{$blur}rem
+          #{$scale}rem
+          $adjustedStarColor,
+        #{random($axisLength--X)}rem
+          #{random($axisLength--Y)}rem
+          #{$blur}rem
+          #{$scale}rem
+          $adjustedStarColor;
+      $boxShadow: #{$boxShadow}
+          #{","} -#{random($axisLength--X)}rem -#{random($axisLength--Y)}rem
+          #{$blur}rem
+          #{$scale}rem
+          $adjustedStarColor,
+        #{random($axisLength--X)}rem -#{random($axisLength--Y)}rem
+          #{$blur}rem
+          #{$scale}rem
+          $adjustedStarColor;
+    }
+
+    box-shadow: #{$boxShadow};
+
+    // Call animation to spin stars
+    -webkit-animation: spin $solarSystemSpeedThroughUniverse linear infinite;
+    -moz-animation: spin $solarSystemSpeedThroughUniverse linear infinite;
+    -ms-animation: spin $solarSystemSpeedThroughUniverse linear infinite;
+    animation: spin $solarSystemSpeedThroughUniverse linear infinite;
+  } // before (stars)
+}
+
+// CSS ANIMATIONS
+
+@keyframes lookAround {
+  0% {
+    top: 20%;
+    left: 35%;
+  }
+  10% {
+    top: 20%;
+    left: 35%;
+  }
+  13% {
+    top: 20%;
+    left: 70%;
+  }
+  30% {
+    top: 20%;
+    left: 65%;
+  }
+  33% {
+    top: 20%;
+    left: 15%;
+  }
+  50% {
+    top: 20%;
+    left: 15%;
+  }
+  53% {
+    top: 10%;
+    left: 15%;
+  }
+  80% {
+    top: 5%;
+    left: 35%;
+  }
+  90% {
+    top: 7%;
+    left: 35%;
+  }
+  92% {
+    top: 20%;
+    left: 35%;
+  }
+  100% {
+    top: 20%;
+    left: 35%;
+  }
+}
+
+@keyframes browMove {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  13% {
+    transform: rotate(-2deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(0deg) rotate(2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  53% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg) translateY(-15%);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  92% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes aimAround {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  13% {
+    transform: rotate(-4deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(0deg) rotate(95deg);
+  }
+  45% {
+    transform: rotate(0deg) rotate(100deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  53% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  92% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  font-family: helvetica, arial, sans-serif;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}

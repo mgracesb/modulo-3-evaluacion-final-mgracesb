@@ -8,3 +8,9 @@
 @import "./layout/characterCard";
 @import "./layout/characterDetail";
 @import "./layout/filter";
+
+.appContainer {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
