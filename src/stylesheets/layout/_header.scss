@@ -26,11 +26,12 @@
 
   .headerImg {
     height: 95%;
+
     @include forTablet {
-      height: 85%;
+      height: 100%;
     }
     @include forXL {
-      height: 93%;
+      height: 97%;
     }
   }
 }

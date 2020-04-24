@@ -1,17 +1,17 @@
 import React from "react";
-import "../stylesheets/Landing.scss";
+import "../../stylesheets/Animation.scss";
+// import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
     <div className="sky column">
-      {/* <button type="button" className="landingButton">
-        Enter
-      </button> */}
       <div className="stars row">
         <div className="rick column">
           <div className="rick-hair"></div>
           <div className="rick-head column">
-            <button className="eyebrow">Enter</button>
+            {/* <Link to="/"> */}
+            <button className="eyebrow">Click to Enter</button>
+            {/* </Link> */}
             <div className="eyes row">
               <div className="eye--right"></div>
               <div className="nose"></div>

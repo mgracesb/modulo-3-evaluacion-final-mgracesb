@@ -7,10 +7,11 @@
 
   &:hover {
     @include forPc {
-      transform: scale(1.1);
+      transform: scale(1.05);
+      border: 2px solid greenyellow;
     }
     @include forXL {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
 
@@ -57,4 +58,28 @@
 }
 a:link {
   text-decoration: none !important;
+}
+
+.warning {
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: $fontDefault;
+  font-size: $fontSizeM;
+  color: white;
+  margin: 10px;
+  grid-column: 1/-1;
+  border: 2px solid yellow;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+  .warningText {
+    font-size: 3rem;
+    align-self: center;
+    padding-left: 20px;
+  }
+
+  .warning2 {
+    height: 220px;
+    grid-column: 2/3;
+  }
 }

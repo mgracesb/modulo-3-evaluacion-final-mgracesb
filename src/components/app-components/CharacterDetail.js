@@ -16,7 +16,6 @@ const CharacterDetail = (props) => {
         <img src={image} alt={name} className="detailImg" />
         <h3 className="detailName">{name}</h3>
         <h4 className="subtitle1">Species</h4>
-        {/* <div className={species !== "Alien" ? "human" : "alien"}></div> */}
         <img
           src={species !== "Alien" ? `${human}` : `${alien}`}
           className={species !== "Alien" ? "human" : "alien"}

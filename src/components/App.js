@@ -30,7 +30,7 @@ class App extends React.Component {
     const charList = JSON.parse(localStorage.getItem("charList"));
     const value = JSON.parse(localStorage.getItem("inputValue"));
 
-    if (characterList === [] && inputValue === "") {
+    if (characterList !== [] && inputValue !== "") {
       this.setState = {
         characterList: charList,
         inputValue: value,
@@ -63,6 +63,7 @@ class App extends React.Component {
     this.setState((prevState) => {
       return { ...prevState, characterList: updatedList };
     });
+    console.log("check: ", this.state.characterList);
   }
 
   renderDetails(props) {
@@ -94,8 +95,8 @@ class App extends React.Component {
               handleList={this.handleList}
             />
           </Route>
+
           <Route
-            exact
             path="/detail/:id"
             // component={CharacterDetail}
             render={this.renderDetails}
