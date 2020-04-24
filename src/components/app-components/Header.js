@@ -5,7 +5,7 @@ import Image from "../../images/rick-morty.png";
 const Header = () => {
   return (
     <header className="header">
-      <Link>
+      <Link to="/">
         <img src={Image} alt="logo" className="headerImg" />
       </Link>
     </header>

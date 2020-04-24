@@ -13,6 +13,7 @@ class App extends React.Component {
 
     this.inputHandler = this.inputHandler.bind(this);
     this.renderDetails = this.renderDetails.bind(this);
+    this.handleList = this.handleList.bind(this);
     this.state = {
       characterList: [],
       inputValue: "",
@@ -24,10 +25,10 @@ class App extends React.Component {
   // }
 
   componentDidMount() {
-    const value = JSON.parse(localStorage.getItem("inputValue"));
-    if (this.state.inputValue !== "") {
-      this.setState({ inputValue: value });
-    }
+    // const value = JSON.parse(localStorage.getItem("inputValue"));
+    // if (this.state.inputValue !== "") {
+    //   this.setState({ inputValue: value });
+    // }
     fetchData().then(
       (data) => {
         this.setState({ characterList: data.results });
@@ -44,12 +45,19 @@ class App extends React.Component {
     this.setState({
       inputValue: inputVal,
     });
+    this.handleList(inputVal);
+  }
+
+  handleList(inputVal) {
+    const updatedList = this.state.characterList.filter((item) => {
+      return item.name.includes(inputVal) !== 1;
+    });
+    this.setState({ characterList: updatedList });
   }
 
   renderDetails(props) {
     const routeId = parseInt(props.match.params.id);
     const characterList = this.state.characterList;
-    console.log(routeId);
 
     for (let character of characterList) {
       if (character.id === routeId) {
@@ -57,6 +65,7 @@ class App extends React.Component {
       }
     }
   }
+
   render() {
     const { characterList, inputValue } = this.state;
     console.log(this.props.match.params.id);
@@ -72,6 +81,7 @@ class App extends React.Component {
               chars={characterList}
               inputValue={inputValue}
               inputHandler={this.inputHandler}
+              handleList={this.handleList}
             />
           </Route>
           <Route

@@ -1,4 +1,6 @@
 .form {
+  font-family: $fontDefault;
+  font-weight: 300;
   position: fixed;
   top: 21%;
   left: 37%;
@@ -15,7 +17,7 @@
     border-radius: 20px;
     border: none;
     height: 15px;
-    color: rgb(94, 94, 94);
+    color: rgb(61, 61, 61);
 
     @include forTablet {
       width: 80%;

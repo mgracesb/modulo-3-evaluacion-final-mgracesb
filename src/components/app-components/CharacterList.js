@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const CharacterList = (props) => {
   const { chars, inputValue } = props;
   console.log("List: ", inputValue);
-  console.log("List: ", chars);
 
+  console.log("List: ", chars);
   return (
     <ul className="charList">
       {chars
@@ -22,6 +22,7 @@ const CharacterList = (props) => {
                 image={charObject.image}
                 name={charObject.name}
                 species={charObject.species}
+                id={charObject.id}
               />
             </Link>
           </li>
