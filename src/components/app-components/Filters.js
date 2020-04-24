@@ -2,6 +2,7 @@ import React from "react";
 
 const Filter = (props) => {
   const filterName = (evt) => {
+    evt.preventDefault();
     const inputVal = evt.target.value;
     props.inputHandler(inputVal);
   };
@@ -11,7 +12,7 @@ const Filter = (props) => {
         value={props.inputValue}
         type="text"
         className="filter"
-        placeholder={props.inputValue !== "" ? props.inputValue : "Search"}
+        placeholder="Search"
         onChange={filterName}
       />
     </form>

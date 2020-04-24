@@ -2,13 +2,16 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 5% 90% 5%;
-  grid-template-rows: 10% 80% 10%;
-  background-color: $colorBgDark;
+  grid-template-columns: 5vw 90vw 5vw;
+  grid-template-rows: 10vh 80vh 10vh;
+  background-color: rgba(0, 0, 0, 0.4);
 
   @include forTablet {
-    grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 15% 70% 15%;
+    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-rows: 15vh 70vh 15vh;
+  }
+  @include forXL {
+    grid-template-columns: 30vw 40vw 30vw;
   }
 
   .closeDetail {
@@ -29,11 +32,23 @@
         transform: scale(1.2);
       }
     }
+    @include forXL {
+      width: 100px;
+      height: 35px;
+    }
 
     .fa-chevron-left {
-      font-size: 13px;
+      font-size: 1rem;
       color: $colorDefault;
       padding-right: 5px;
+
+      @include forPc {
+        font-size: 1.1rem;
+      }
+
+      @include forXL {
+        font-size: 1.3rem;
+      }
     }
     .close {
       color: white;
@@ -41,6 +56,14 @@
       font-weight: 300;
       letter-spacing: 2px;
       text-transform: capitalize;
+
+      @include forPc {
+        font-size: 1.5rem;
+      }
+
+      @include forXL {
+        font-size: 1.8rem;
+      }
     }
   }
   .charObj {
@@ -49,37 +72,56 @@
     grid-row: 2;
     display: grid;
     grid-template-columns: 10% 30% 50% 10%;
-    grid-template-rows: 5% 50% 10% 5% 5% 5% 5%;
+    grid-template-rows: 5% 50% 10% 5% 5% 5% 5% 5% 10%;
+    box-shadow: 0px 2px 4px 3px #7fbb2b9d;
 
     @include forTablet {
       grid-template-columns: 15% 25% 45% 15%;
-      grid-template-rows: 5% 50% 8% 5% 5% 5% 5%;
+      grid-template-rows: 5% 50% 8% 5% 5% 5% 5% 5% 7%;
     }
+
+    @include forPc {
+      grid-template-rows: 5% 55% 8% 5% 5% 5% 5% 5% 7%;
+      box-shadow: 0px 3px 5px 4px #7fbb2b9d;
+    }
+
     .detailImg {
       grid-row: 2/3;
       grid-column: 2/4;
-      align-self: center;
+      align-self: end;
       justify-self: center;
       width: 100%;
       @include forTablet {
         width: 85%;
       }
       @include forPc {
-        width: 90%;
+        width: 80%;
+      }
+      @include forXL {
+        width: 60%;
       }
     }
     .detailName {
       grid-row: 3;
       grid-column: 2/4;
       font-family: $fontDefault;
-      font-size: 1.5rem;
+      font-size: $fontSizeL;
       align-self: center;
       color: white;
+
+      @include forTablet {
+        font-size: 1.7rem;
+        margin-left: 7%;
+      }
 
       @include forPc {
         font-size: 2rem;
         text-align: center;
         align-self: center;
+        margin-left: 0;
+      }
+      @include forXL {
+        font-size: 2.8rem;
       }
     }
 
@@ -87,66 +129,151 @@
       grid-row: 4;
       grid-column: 2/4;
       @include forSubtitle;
-      @include forTabletSizing;
-      @include forPcSizing;
+      @include forTablet {
+        @include forTabletSizing;
+      }
+      @include forPc {
+        @include forPcSizing;
+      }
+      @include forXL {
+        @include forXlSizing;
+      }
     }
 
-    .detailSpecies {
-      grid-row: 4;
-      grid-column: 3/5;
-      @include forDetails;
-      @include forTabletSizing;
-      @include forPcSizing;
+    .human {
+      @include forSpeciesS;
+      @include forTablet {
+        margin-left: 7%;
+      }
+      @include forTablet {
+        @include forStatusM;
+      }
+      @include forPc {
+        @include forStatusL;
+      }
+      @include forXL {
+        @include forStatusXL;
+      }
+    }
+
+    .alien {
+      @include forSpeciesS;
+      @include forTablet {
+        margin-left: 7%;
+      }
+      @include forTablet {
+        @include forStatusM;
+      }
+      @include forPc {
+        @include forStatusL;
+      }
+      @include forXL {
+        @include forStatusXL;
+      }
     }
 
     .subtitle2 {
       grid-row: 5;
       grid-column: 2/4;
       @include forSubtitle;
-      @include forTabletSizing;
-      @include forPcSizing;
+      @include forTablet {
+        @include forTabletSizing;
+      }
+      @include forPc {
+        @include forPcSizing;
+      }
+      @include forXL {
+        @include forXlSizing;
+      }
     }
 
     .detailOrigin {
       grid-row: 5;
       grid-column: 3/5;
       @include forDetails;
-      @include forTabletSizing;
-      @include forPcSizing;
+      @include forTablet {
+        @include forTabletSizing;
+      }
+      @include forPc {
+        @include forPcSizing;
+      }
+      @include forXL {
+        @include forXlSizing;
+      }
     }
 
     .subtitle3 {
       grid-row: 6;
       grid-column: 2/4;
       @include forSubtitle;
-      @include forTabletSizing;
-      @include forPcSizing;
+      @include forTablet {
+        @include forTabletSizing;
+      }
+      @include forPc {
+        @include forPcSizing;
+      }
+      @include forXL {
+        @include forXlSizing;
+      }
     }
 
     .detailEp {
       grid-row: 6;
       grid-column: 3/5;
       @include forDetails;
-      @include forTabletSizing;
-      @include forPcSizing;
+      @include forTablet {
+        @include forTabletSizing;
+      }
+      @include forPc {
+        @include forPcSizing;
+      }
+      @include forXL {
+        @include forXlSizing;
+      }
     }
     .subtitle4 {
       grid-row: 7;
       grid-column: 2/4;
       @include forSubtitle;
-      @include forTabletSizing;
-      @include forPcSizing;
+      @include forTablet {
+        @include forTabletSizing;
+      }
+      @include forPc {
+        @include forPcSizing;
+      }
+      @include forXL {
+        @include forXlSizing;
+      }
     }
     .alive {
-      background-image: url(../../images/alive.svg);
-      @include forStatus;
-      @include forPcStatus;
+      background-image: url(../../images/alive.png);
+      @include forStatusS;
+
+      @include forTablet {
+        @include forStatusM;
+      }
+      @include forPc {
+        @include forStatusL;
+      }
+      @include forXL {
+        @include forStatusXL;
+      }
     }
 
     .dead {
       background-image: url(../../images/dead.svg);
-      @include forStatus;
-      @include forPcSizing;
+      @include forStatusS;
+
+      @include forTablet {
+        @include forStatusM;
+      }
+      @include forPc {
+        @include forPcSizing;
+        @include forStatusL;
+      }
+      @include forXL {
+        @include forStatusXL;
+      }
     }
   }
 }

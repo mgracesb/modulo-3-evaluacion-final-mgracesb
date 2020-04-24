@@ -9,11 +9,15 @@
 
   @include forTablet {
     grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0.5%;
+    grid-row-gap: 1%;
   }
   @include forPc {
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
-    grid-gap: 3%;
+  }
+  @include forXL {
+    width: 80%;
   }
 }

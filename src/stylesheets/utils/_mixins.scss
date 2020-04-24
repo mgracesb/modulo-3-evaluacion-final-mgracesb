@@ -1,6 +1,3 @@
-$tablet: 768px;
-$pc: 1024px;
-
 @mixin forTablet {
   @media all and (min-width: $tablet) {
     @content;
@@ -13,39 +10,77 @@ $pc: 1024px;
   }
 }
 
+@mixin forXL {
+  @media all and (min-width: $xl) {
+    @content;
+  }
+}
+
 @mixin forSubtitle {
+  align-self: center;
   font-family: $fontDefault;
-  font-size: 0.9rem;
+  font-size: $fontSizeDefault;
   color: rgb(24, 24, 24);
 }
 
 @mixin forDetails {
+  align-self: center;
   font-family: $fontDefault;
   font-weight: lighter;
-  font-size: 0.9rem;
+  font-size: $fontSizeDefault;
   color: rgb(24, 24, 24);
 }
 
-@mixin forStatus {
+@mixin forSpeciesS {
+  align-self: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 20px;
-  height: 20px;
+  width: $sizeIconS;
+  height: $sizeIconS;
+  grid-row: 4;
+  grid-column: 3/5;
+}
+
+@mixin forStatusS {
+  align-self: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: $sizeIconS;
+  height: $sizeIconS;
   grid-row: 7;
   grid-column: 3/5;
 }
 
+@mixin forStatusM {
+  width: $sizeIconM;
+  height: $sizeIconM;
+  margin-left: 7%;
+}
+
+@mixin forStatusL {
+  width: $sizeIconL;
+  height: $sizeIconL;
+}
+
+@mixin forStatusXL {
+  width: $sizeIconXL;
+  height: $sizeIconXL;
+  margin-left: $sizeM;
+}
+
 @mixin forTabletSizing {
-  font-size: 1.2rem;
+  font-size: $fontSizeM;
+  margin-left: 7%;
 }
 
 @mixin forPcSizing {
-  font-size: 1.5rem;
-  margin-left: 5%;
+  font-size: $fontSizeL;
+  margin-left: $sizeS;
 }
 
-@mixin forPcStatus {
-  margin-left: 5%;
-  width: 30px;
-  height: 30px;
+@mixin forXlSizing {
+  font-size: $fontSizeXL;
+  margin-left: $sizeM;
+  padding-top: $sizeS;
+  padding-bottom: $sizeS;
 }

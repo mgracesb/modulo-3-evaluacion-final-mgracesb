@@ -1,18 +1,32 @@
 .form {
+  z-index: 999;
+  font-size: 12px;
   font-family: $fontDefault;
   font-weight: 300;
   position: fixed;
-  top: 21%;
-  left: 37%;
+  width: 120px;
+  height: 20px;
+  top: 14%;
+  left: 55%;
+
   @include forTablet {
-    left: 42%;
+    width: 140px;
+    height: 22px;
+    top: 18%;
+    margin-top: -14px;
+    left: 50%;
+    margin-left: -70px;
   }
-  @include forPc {
-    left: 45%;
+  @include forXL {
+    font-size: $fontSizeM;
+    top: 21.5%;
+    left: 50%;
+    width: 180px;
+    margin-left: -90px;
   }
 
   .filter {
-    width: 60%;
+    width: 69%;
     padding-left: 5%;
     border-radius: 20px;
     border: none;
@@ -20,11 +34,14 @@
     color: rgb(61, 61, 61);
 
     @include forTablet {
-      width: 80%;
-      height: 20px;
+      width: 100%;
+      height: 100%;
     }
     @include forPc {
       height: 25px;
+    }
+    @include forXL {
+      box-shadow: inset -2px -2px 2px 2px rgba(0, 0, 0, 0.4);
     }
   }
 }

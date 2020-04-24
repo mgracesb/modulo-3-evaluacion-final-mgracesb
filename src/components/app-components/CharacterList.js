@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 
 const CharacterList = (props) => {
   const { chars, inputValue } = props;
-  console.log("List: ", inputValue);
-
-  console.log("List: ", chars);
   return (
     <ul className="charList">
       {chars

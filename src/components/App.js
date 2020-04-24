@@ -20,25 +20,33 @@ class App extends React.Component {
     };
   }
 
-  // componentDidUpdate() {
-  //   localStorage.setItem("inputValue", JSON.stringify(this.state.inputValue));
-  // }
+  componentDidUpdate() {
+    localStorage.setItem("charList", JSON.stringify(this.state.characterList));
+    localStorage.setItem("inputValue", JSON.stringify(this.state.inputValue));
+  }
 
   componentDidMount() {
-    // const value = JSON.parse(localStorage.getItem("inputValue"));
-    // if (this.state.inputValue !== "") {
-    //   this.setState({ inputValue: value });
-    // }
-    fetchData().then(
-      (data) => {
-        this.setState({ characterList: data.results });
-      },
-      (error) => {
-        this.setState({
-          error,
-        });
-      }
-    );
+    const { characterList, inputValue } = this.state;
+    const charList = JSON.parse(localStorage.getItem("charList"));
+    const value = JSON.parse(localStorage.getItem("inputValue"));
+
+    if (characterList === [] && inputValue === "") {
+      this.setState = {
+        characterList: charList,
+        inputValue: value,
+      };
+    } else {
+      fetchData().then(
+        (data) => {
+          this.setState({ characterList: data.results });
+        },
+        (error) => {
+          this.setState({
+            error,
+          });
+        }
+      );
+    }
   }
 
   inputHandler(inputVal) {
@@ -52,7 +60,9 @@ class App extends React.Component {
     const updatedList = this.state.characterList.filter((item) => {
       return item.name.includes(inputVal) !== 1;
     });
-    this.setState({ characterList: updatedList });
+    this.setState((prevState) => {
+      return { ...prevState, characterList: updatedList };
+    });
   }
 
   renderDetails(props) {
