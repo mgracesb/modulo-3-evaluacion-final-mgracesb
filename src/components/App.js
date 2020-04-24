@@ -20,21 +20,47 @@ class App extends React.Component {
     };
   }
 
+  inputHandler(inputVal) {
+    this.setState({
+      inputValue: inputVal,
+    });
+    this.handleList(inputVal);
+  }
+
+  handleList(inputVal) {
+    const updatedList = this.state.characterList.filter((item) => {
+      return item.name.toLowerCase().includes(inputVal.toLowerCase());
+    });
+    this.setState({ characterList: updatedList });
+    console.log("check: ", updatedList);
+  }
+
+  renderDetails(props) {
+    const routeId = parseInt(props.match.params.id);
+    const characterList = this.state.characterList;
+
+    for (let character of characterList) {
+      if (character.id === routeId) {
+        return <CharacterDetail charObj={character} />;
+      }
+    }
+  }
+
   componentDidUpdate() {
-    localStorage.setItem("charList", JSON.stringify(this.state.characterList));
     localStorage.setItem("inputValue", JSON.stringify(this.state.inputValue));
+    localStorage.setItem("charList", JSON.stringify(this.state.characterList));
   }
 
   componentDidMount() {
     const { characterList, inputValue } = this.state;
-    const charList = JSON.parse(localStorage.getItem("charList"));
+    const list = JSON.parse(localStorage.getItem("charList"));
     const value = JSON.parse(localStorage.getItem("inputValue"));
 
     if (characterList !== [] && inputValue !== "") {
-      this.setState = {
-        characterList: charList,
+      this.setState({
+        characterList: list,
         inputValue: value,
-      };
+      });
     } else {
       fetchData().then(
         (data) => {
@@ -49,38 +75,8 @@ class App extends React.Component {
     }
   }
 
-  inputHandler(inputVal) {
-    this.setState({
-      inputValue: inputVal,
-    });
-    this.handleList(inputVal);
-  }
-
-  handleList(inputVal) {
-    const updatedList = this.state.characterList.filter((item) => {
-      return item.name.includes(inputVal) !== 1;
-    });
-    this.setState((prevState) => {
-      return { ...prevState, characterList: updatedList };
-    });
-    console.log("check: ", this.state.characterList);
-  }
-
-  renderDetails(props) {
-    const routeId = parseInt(props.match.params.id);
-    const characterList = this.state.characterList;
-
-    for (let character of characterList) {
-      if (character.id === routeId) {
-        return <CharacterDetail charObj={character} />;
-      }
-    }
-  }
-
   render() {
     const { characterList, inputValue } = this.state;
-    console.log(this.props.match.params.id);
-    console.log("App: ", characterList);
     return (
       <div className="app">
         <Switch>
