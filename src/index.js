@@ -9,7 +9,7 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Switch>
-        <Route path="/" component={App}></Route>
+        <Route exact path="/" component={App}></Route>
         <Route path="*" component={WrongURL}></Route>
       </Switch>
     </HashRouter>

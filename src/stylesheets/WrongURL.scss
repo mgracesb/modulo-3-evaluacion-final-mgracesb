@@ -11,13 +11,15 @@
   width: 200px;
   height: 200px;
   text-align: center;
-  padding: 5%;
+  padding: 3%;
   border-radius: 6px;
   border: 2px solid black;
 
   @include forTablet {
+    top: 37%;
     margin-top: -200px;
     margin-left: -200px;
+    padding: 5%;
     width: 400px;
     height: 400px;
   }
@@ -30,10 +32,60 @@
     height: 500px;
   }
 
+  .closeDetail {
+    display: block;
+    width: 100%;
+    height: 25px;
+    text-align: right;
+    font-size: 20px;
+    font-family: $fontDefault;
+    padding-bottom: 1%;
+    transition: 300ms ease;
+
+    @include forPc {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    @include forXL {
+      height: 35px;
+    }
+
+    .fa-chevron-left {
+      font-size: $fontSizeXS;
+      color: hotpink;
+      padding-right: 5px;
+
+      @include forPc {
+        font-size: 1.1rem;
+      }
+
+      @include forXL {
+        font-size: 1.3rem;
+      }
+    }
+    .close {
+      color: white;
+      display: inline;
+      font-weight: 300;
+      text-transform: capitalize;
+      font-size: $fontSizeXS;
+
+      @include forTablet {
+        letter-spacing: 2px;
+        font-size: 1.5rem;
+      }
+
+      @include forXL {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
   .warningImg {
     width: 60px;
     height: 60px;
-    margin-top: 10%;
+    margin-top: 8%;
 
     @include forTablet {
       width: 100px;
