@@ -8,6 +8,7 @@ import CharacterDetail from "./app-components/CharacterDetail";
 import Header from "./app-components/Header";
 import Reset from "./app-components/Reset";
 import PropTypes from "prop-types";
+import WrongURL from "./app-components/WrongURL";
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class App extends React.Component {
     this.renderDetails = this.renderDetails.bind(this);
     this.handleList = this.handleList.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    // this.renderWrong = this.renderWrong.bind(this);
 
     this.state = {
       characterList: [],
@@ -49,11 +51,12 @@ class App extends React.Component {
   }
 
   renderDetails(props) {
+    console.log(props);
     const routeId = parseInt(props.match.params.id);
     const characterList = this.state.characterList;
 
     for (let character of characterList) {
-      if (character.id === routeId) {
+      if (character.id === routeId && character.id <= 20) {
         return <CharacterDetail charObj={character} />;
       }
     }
@@ -90,12 +93,22 @@ class App extends React.Component {
     }
   }
 
+  // renderWrong(props) {
+  //   const characterList = this.state.characterList;
+  //   const routeId = parseInt(props.match.params.id);
+  //   for (let character of characterList) {
+  //     if (character.id > 20 && routeId === character.id) {
+  //       return <WrongURL />;
+  //     }
+  //   }
+  // }
+
   render() {
     const { characterList, inputValue } = this.state;
     return (
       <div className="app">
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Header />
             <Filters inputHandler={this.inputHandler} inputValue={inputValue} />
             <Reset resetHandler={this.resetHandler} />
@@ -106,7 +119,9 @@ class App extends React.Component {
               handleList={this.handleList}
             />
           </Route>
-          <Route path="/detail/:id" render={this.renderDetails}></Route>
+
+          <Route exact path="/detail/:id" render={this.renderDetails} />
+          <Route component={WrongURL} />
         </Switch>
       </div>
     );

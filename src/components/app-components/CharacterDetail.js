@@ -4,6 +4,7 @@ import alien from "../../images/alien.svg";
 import human from "../../images/human.svg";
 
 const CharacterDetail = (props) => {
+  console.log(props);
   const { name, image, episode, status, species, origin } = props.charObj;
 
   return (
