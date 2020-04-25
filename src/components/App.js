@@ -84,10 +84,9 @@ class App extends React.Component {
     return (
       <div className="app">
         <Switch>
-          <Route exact path="/">
+          <Route path="/">
             <Header />
             <Filters inputHandler={this.inputHandler} inputValue={inputValue} />
-
             <CharacterList
               chars={characterList}
               inputValue={inputValue}

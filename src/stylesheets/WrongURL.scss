@@ -30,6 +30,59 @@
     height: 500px;
   }
 
+  .closeDetail {
+    width: 80px;
+    height: 25px;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    justify-self: end;
+    text-align: right;
+    font-size: 20px;
+    font-family: $fontDefault;
+    padding-bottom: 1%;
+    transition: 300ms ease;
+
+    @include forPc {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    @include forXL {
+      width: 100px;
+      height: 35px;
+    }
+
+    .fa-chevron-left {
+      font-size: 1rem;
+      color: $colorDefault;
+      padding-right: 5px;
+
+      @include forPc {
+        font-size: 1.1rem;
+      }
+
+      @include forXL {
+        font-size: 1.3rem;
+      }
+    }
+    .close {
+      color: white;
+      display: inline;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+
+      @include forPc {
+        font-size: 1.5rem;
+      }
+
+      @include forXL {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
   .warningImg {
     width: 60px;
     height: 60px;
