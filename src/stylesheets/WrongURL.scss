@@ -1,0 +1,62 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+
+.wrongURL {
+  background-color: $boxBg;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  padding: 5%;
+  border-radius: 6px;
+  border: 2px solid black;
+
+  @include forTablet {
+    margin-top: -200px;
+    margin-left: -200px;
+    width: 400px;
+    height: 400px;
+  }
+
+  @include forPc {
+    margin-top: -250px;
+    margin-left: -250px;
+    padding: 2%;
+    width: 500px;
+    height: 500px;
+  }
+
+  .warningImg {
+    width: 60px;
+    height: 60px;
+    margin-top: 10%;
+
+    @include forTablet {
+      width: 100px;
+      height: 100px;
+    }
+    @include forPc {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .warningText {
+    font-family: $fontDefault;
+    font-size: $fontSizeM;
+    color: rgb(255, 220, 21);
+    margin-top: 10%;
+
+    @include forTablet {
+      font-size: 2rem;
+    }
+
+    @include forPc {
+      font-size: 3rem;
+    }
+  }
+}
