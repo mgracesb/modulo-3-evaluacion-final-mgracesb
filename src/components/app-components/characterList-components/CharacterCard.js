@@ -1,7 +1,6 @@
 import React from "react";
 
 const CharacterCard = (props) => {
-  //   console.log("Card:", props);
   return (
     <React.Fragment>
       <img src={props.image} alt={props.name} className="cardImg" />

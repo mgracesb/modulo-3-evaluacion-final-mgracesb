@@ -18,7 +18,7 @@ class App extends React.Component {
     this.renderDetails = this.renderDetails.bind(this);
     this.handleList = this.handleList.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
-    // this.renderWrong = this.renderWrong.bind(this);
+    this.renderWrong = this.renderWrong.bind(this);
 
     this.state = {
       characterList: [],
@@ -45,13 +45,9 @@ class App extends React.Component {
     this.setState((prevState) => {
       return { ...prevState, characterList: updatedList };
     });
-
-    console.log("value: ", inputVal);
-    console.log("check: ", ...updatedList);
   }
 
   renderDetails(props) {
-    console.log(props);
     const routeId = parseInt(props.match.params.id);
     const characterList = this.state.characterList;
 
@@ -93,15 +89,15 @@ class App extends React.Component {
     }
   }
 
-  // renderWrong(props) {
-  //   const characterList = this.state.characterList;
-  //   const routeId = parseInt(props.match.params.id);
-  //   for (let character of characterList) {
-  //     if (character.id > 20 && routeId === character.id) {
-  //       return <WrongURL />;
-  //     }
-  //   }
-  // }
+  renderWrong(props) {
+    const characterList = this.state.characterList;
+    const routeId = parseInt(props.match.params.id);
+    for (let character of characterList) {
+      if (character.id > 20 && routeId === character.id) {
+        return <WrongURL />;
+      }
+    }
+  }
 
   render() {
     const { characterList, inputValue } = this.state;
@@ -119,9 +115,8 @@ class App extends React.Component {
               handleList={this.handleList}
             />
           </Route>
-
           <Route exact path="/detail/:id" render={this.renderDetails} />
-          <Route component={WrongURL} />
+          <Route path="*" component={WrongURL} />
         </Switch>
       </div>
     );

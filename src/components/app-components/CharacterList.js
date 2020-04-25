@@ -5,7 +5,7 @@ import warning1 from "../../images/warning.gif";
 
 const CharacterList = (props) => {
   const { chars, inputValue } = props;
-  console.log("List", chars);
+
   return (
     <ul className="charList">
       {chars.length !== 0 ? (
