@@ -2,7 +2,7 @@ import React from "react";
 import warning from "../../images/warning.svg";
 import "../../stylesheets/WrongURL.scss";
 
-const Wrong = () => {
+const WrongURL = () => {
   return (
     <div className="wrongURL">
       <img src={warning} alt="not found" className="warningImg" />
@@ -11,4 +11,4 @@ const Wrong = () => {
   );
 };
 
-export default Wrong;
+export default WrongURL;
