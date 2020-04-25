@@ -6,6 +6,7 @@ import Filters from "./app-components/Filters";
 import CharacterList from "./app-components/CharacterList";
 import CharacterDetail from "./app-components/CharacterDetail";
 import Header from "./app-components/Header";
+import PropTypes from "prop-types";
 
 class App extends React.Component {
   constructor(props) {
@@ -101,5 +102,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  inputValue: PropTypes.string,
+};
 
 export default App;
