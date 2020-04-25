@@ -95,7 +95,6 @@ class App extends React.Component {
               handleList={this.handleList}
             />
           </Route>
-
           <Route path="/detail/:id" render={this.renderDetails}></Route>
         </Switch>
       </div>
