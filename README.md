@@ -1,11 +1,13 @@
-<img src='https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png' alt='rick and morty' width=300px height=300px>
+<p  align="center">
+  <img src='https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png' alt='rick and morty' height=350px>
+</p>
 
 
 # Rick and Morty character finder 👤🔍
 This Web App was created as part of my final review for <a href='https://adalab.es/'>Adalab
 
 ## 🖋 Author:
-👩🏻‍💻 - <a href='https://github.com/mgracesb'>Mercy Grace Shyu.<br> 👈🏼(please, feel free to dig into my projects)
+👩🏻‍💻 - <a href='https://github.com/mgracesb'>Mercy Grace Shyu</a> (please, feel free to dig into my projects)
 
 ## 🎰 Web App functionality:
 💎 - **API** data fetching with **fetch** method.<br>
