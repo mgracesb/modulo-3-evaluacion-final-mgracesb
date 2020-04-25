@@ -6,6 +6,7 @@ import Filters from "./app-components/Filters";
 import CharacterList from "./app-components/CharacterList";
 import CharacterDetail from "./app-components/CharacterDetail";
 import Header from "./app-components/Header";
+import PropTypes from "prop-types";
 
 class App extends React.Component {
   constructor(props) {
@@ -94,12 +95,15 @@ class App extends React.Component {
               handleList={this.handleList}
             />
           </Route>
-
           <Route path="/detail/:id" render={this.renderDetails}></Route>
         </Switch>
       </div>
     );
   }
 }
+
+App.propTypes = {
+  inputValue: PropTypes.string,
+};
 
 export default App;

@@ -30,7 +30,8 @@ const CharacterList = (props) => {
       ) : (
         <li className="warning">
           <h6 className="warningText">
-            No hay ningún personaje que coincida con la palabra {inputValue}
+            No hay ningún personaje que coincida con la palabra{" "}
+            <p className="errorWord">{inputValue}</p>
           </h6>
           <img src={warning1} className="warning2" alt="warning2" />
         </li>

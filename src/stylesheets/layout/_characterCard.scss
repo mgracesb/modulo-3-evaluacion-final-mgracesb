@@ -1,6 +1,6 @@
 .charLi {
   padding: 6% 3% 6% 3%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: $boxBg;
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.4);
   margin: 5%;
   transition: 300ms ease;
@@ -8,7 +8,7 @@
   &:hover {
     @include forPc {
       transform: scale(1.05);
-      border: 2px solid greenyellow;
+      border: 2px solid $colorHighlight;
     }
     @include forXL {
       transform: scale(1.1);
@@ -71,11 +71,39 @@ a:link {
   border-radius: 6px;
   display: grid;
   grid-template-columns: 80% 20%;
+  margin-left: 15%;
+  margin-right: 15%;
+
+  @include forXL {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
 
   .warningText {
-    font-size: 3rem;
+    font-size: 1.5rem;
     align-self: center;
     padding-left: 20px;
+    @include forTablet {
+      font-size: 2.5rem;
+    }
+    @include forPc {
+      font-size: 3rem;
+    }
+
+    .errorWord {
+      color: yellow;
+      font-size: 1.5rem;
+      display: inline;
+      text-transform: uppercase;
+
+      @include forTablet {
+        font-size: 2.5rem;
+      }
+
+      @include forPc {
+        font-size: 3rem;
+      }
+    }
   }
 
   .warning2 {
