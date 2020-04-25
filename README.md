@@ -4,10 +4,12 @@
 
 
 # Rick and Morty character finder 👤🔍
-This Web App was created as part of my final review for <a href='https://adalab.es/'>Adalab
+This Web App was created as part of my final review for <a href='https://adalab.es/'>Adalab<br>
+<br>
 
 ## 🖋 Author:
-👩🏻‍💻 - <a href='https://github.com/mgracesb'>Mercy Grace Shyu</a> (please, feel free to dig into my projects)
+👩🏻‍💻 - <a href='https://github.com/mgracesb'>Mercy Grace Shyu</a> (please, feel free to dig into my projects)<br>
+<br>
 
 ## 🎰 Web App functionality:
 💎 - **API** data fetching with **fetch** method.<br>
@@ -50,5 +52,4 @@ This Web App was created as part of my final review for <a href='https://adalab.
 
 ###  🎨 For Pc and Larger Screens:<br>
 <img src='https://i.postimg.cc/76HL1p8y/Captura-de-pantalla-2020-04-25-a-las-12-21-33.png' height='600px'>
-<br>
-##
+<br><br>
