@@ -32,6 +32,7 @@ class App extends React.Component {
       return item.name.toLowerCase().includes(inputVal.toLowerCase());
     });
     this.setState({ characterList: updatedList });
+    console.log("value: ", inputVal);
     console.log("check: ", updatedList);
   }
 
@@ -52,11 +53,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { characterList, inputValue } = this.state;
     const list = JSON.parse(localStorage.getItem("charList"));
     const value = JSON.parse(localStorage.getItem("inputValue"));
 
-    if (characterList !== [] && inputValue !== "") {
+    if (
+      localStorage.getItem("charList") &&
+      localStorage.getItem("inputValue")
+    ) {
       this.setState({
         characterList: list,
         inputValue: value,
@@ -92,11 +95,7 @@ class App extends React.Component {
             />
           </Route>
 
-          <Route
-            path="/detail/:id"
-            // component={CharacterDetail}
-            render={this.renderDetails}
-          ></Route>
+          <Route path="/detail/:id" render={this.renderDetails}></Route>
         </Switch>
       </div>
     );

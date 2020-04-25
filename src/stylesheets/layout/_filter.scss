@@ -36,12 +36,13 @@
     padding-top: 1%;
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid greenyellow;
+    border: 2px solid $colorHighlight;
+    color: $colorHighlight;
 
     @include forTablet {
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.199);
-      box-shadow: inset 2px 1px 2px 2px rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.56);
+      box-shadow: inset 2px 1px 2px 2px rgba(0, 0, 0, 0.8);
     }
 
     @include forPc {
