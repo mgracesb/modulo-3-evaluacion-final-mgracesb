@@ -6,6 +6,7 @@ import Filters from "./app-components/Filters";
 import CharacterList from "./app-components/CharacterList";
 import CharacterDetail from "./app-components/CharacterDetail";
 import Header from "./app-components/Header";
+import Reset from "./app-components/Reset";
 import PropTypes from "prop-types";
 
 class App extends React.Component {
@@ -15,10 +16,17 @@ class App extends React.Component {
     this.inputHandler = this.inputHandler.bind(this);
     this.renderDetails = this.renderDetails.bind(this);
     this.handleList = this.handleList.bind(this);
+    this.resetHandler = this.resetHandler.bind(this);
+
     this.state = {
       characterList: [],
       inputValue: "",
     };
+  }
+
+  resetHandler() {
+    localStorage.clear();
+    window.location.reload();
   }
 
   inputHandler(inputVal) {
@@ -32,9 +40,12 @@ class App extends React.Component {
     const updatedList = this.state.characterList.filter((item) => {
       return item.name.toLowerCase().includes(inputVal.toLowerCase());
     });
-    this.setState({ characterList: updatedList });
+    this.setState((prevState) => {
+      return { ...prevState, characterList: updatedList };
+    });
+
     console.log("value: ", inputVal);
-    console.log("check: ", updatedList);
+    console.log("check: ", ...updatedList);
   }
 
   renderDetails(props) {
@@ -87,6 +98,7 @@ class App extends React.Component {
           <Route path="/">
             <Header />
             <Filters inputHandler={this.inputHandler} inputValue={inputValue} />
+            <Reset resetHandler={this.resetHandler} />
             <CharacterList
               chars={characterList}
               inputValue={inputValue}
