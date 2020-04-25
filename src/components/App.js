@@ -18,7 +18,6 @@ class App extends React.Component {
     this.renderDetails = this.renderDetails.bind(this);
     this.handleList = this.handleList.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
-    this.renderWrong = this.renderWrong.bind(this);
 
     this.state = {
       characterList: [],
@@ -50,11 +49,12 @@ class App extends React.Component {
   renderDetails(props) {
     const routeId = parseInt(props.match.params.id);
     const characterList = this.state.characterList;
+    const chars = characterList.find((char) => char.id === routeId);
 
-    for (let character of characterList) {
-      if (character.id === routeId && character.id <= 20) {
-        return <CharacterDetail charObj={character} />;
-      }
+    if (chars) {
+      return <CharacterDetail charObj={chars} />;
+    } else {
+      return <WrongURL />;
     }
   }
 
@@ -89,16 +89,6 @@ class App extends React.Component {
     }
   }
 
-  renderWrong(props) {
-    const characterList = this.state.characterList;
-    const routeId = parseInt(props.match.params.id);
-    for (let character of characterList) {
-      if (character.id > 20 && routeId === character.id) {
-        return <WrongURL />;
-      }
-    }
-  }
-
   render() {
     const { characterList, inputValue } = this.state;
     return (
@@ -116,7 +106,6 @@ class App extends React.Component {
             />
           </Route>
           <Route exact path="/detail/:id" render={this.renderDetails} />
-          <Route path="*" component={WrongURL} />
         </Switch>
       </div>
     );
