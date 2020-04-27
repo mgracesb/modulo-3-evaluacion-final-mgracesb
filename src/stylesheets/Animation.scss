@@ -42,6 +42,8 @@ $rayGun--green: #7fff50;
 .column {
   display: flex;
   flex-flow: column;
+  grid-column: 1/-1;
+  grid-column: 1/-1;
 }
 
 .rick {

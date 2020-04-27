@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const WrongURL = () => {
   return (
     <div className="wrongURL">
-      <Link to="/" className="closeDetail">
+      <Link to="/list" className="closeDetail">
         <i className="fas fa-chevron-left"></i>
         <h5 className="close">Return</h5>
       </Link>

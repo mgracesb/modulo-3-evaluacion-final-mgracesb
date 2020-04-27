@@ -8,7 +8,7 @@ const CharacterDetail = (props) => {
 
   return (
     <div className="detailChar">
-      <Link to="/" className="closeDetail">
+      <Link to="/list" className="closeDetail">
         <i className="fas fa-chevron-left"></i>
         <h5 className="close">return</h5>
       </Link>

@@ -6,6 +6,7 @@
   grid-template-columns: repeat(3, 33%);
   list-style: none;
   justify-self: center;
+  overflow-y: scroll;
 
   @include forTablet {
     grid-template-columns: repeat(4, 1fr);

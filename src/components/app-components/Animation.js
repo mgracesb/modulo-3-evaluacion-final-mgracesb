@@ -1,6 +1,6 @@
 import React from "react";
-import "../../stylesheets/Animation.scss";
-// import { Link } from "react-router-dom";
+import "../../stylesheets/App.scss";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -9,9 +9,9 @@ const Landing = () => {
         <div className="rick column">
           <div className="rick-hair"></div>
           <div className="rick-head column">
-            {/* <Link to="/"> */}
-            <button className="eyebrow">Click to Enter</button>
-            {/* </Link> */}
+            <Link to="/list">
+              <button className="eyebrow">Click to Enter</button>
+            </Link>
             <div className="eyes row">
               <div className="eye--right"></div>
               <div className="nose"></div>

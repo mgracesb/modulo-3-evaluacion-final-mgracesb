@@ -9,6 +9,9 @@ import Header from "./app-components/Header";
 import Reset from "./app-components/Reset";
 import PropTypes from "prop-types";
 import WrongURL from "./app-components/WrongURL";
+import Animation from "./app-components/Animation";
+import Options from "./app-components/Options";
+// import Loader from "./app-components/Loader";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,10 +21,13 @@ class App extends React.Component {
     this.renderDetails = this.renderDetails.bind(this);
     this.handleList = this.handleList.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
 
     this.state = {
       characterList: [],
       inputValue: "",
+      gender: "",
+      rainbow: false,
     };
   }
 
@@ -34,7 +40,7 @@ class App extends React.Component {
     this.setState({
       inputValue: inputVal,
     });
-    this.handleList(inputVal);
+    // this.handleList(inputVal);
   }
 
   handleList(inputVal) {
@@ -60,19 +66,13 @@ class App extends React.Component {
 
   componentDidUpdate() {
     localStorage.setItem("inputValue", JSON.stringify(this.state.inputValue));
-    localStorage.setItem("charList", JSON.stringify(this.state.characterList));
   }
 
   componentDidMount() {
-    const list = JSON.parse(localStorage.getItem("charList"));
     const value = JSON.parse(localStorage.getItem("inputValue"));
 
-    if (
-      localStorage.getItem("charList") &&
-      localStorage.getItem("inputValue")
-    ) {
+    if (localStorage.getItem("inputValue") !== null || "") {
       this.setState({
-        characterList: list,
         inputValue: value,
       });
     } else {
@@ -89,20 +89,39 @@ class App extends React.Component {
     }
   }
 
+  animation() {
+    return <Animation />;
+  }
+
+  handleSelect(value) {
+    this.setState({ gender: value });
+  }
+
+  // loader() {
+  //   return <Loader />;
+  // }
+
   render() {
-    const { characterList, inputValue } = this.state;
+    const { characterList, inputValue, gender, rainbow } = this.state;
     return (
       <div className="app">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" render={this.animation} />
+          {/* <Route exact path="/loader" render={this.loader} /> */}
+          <Route exact path="/list">
+            {/* <Loader loader={this.loader} /> */}
             <Header />
             <Filters inputHandler={this.inputHandler} inputValue={inputValue} />
+            <Options handleSelect={this.handleSelect} />
             <Reset resetHandler={this.resetHandler} />
             <CharacterList
               chars={characterList}
               inputValue={inputValue}
               inputHandler={this.inputHandler}
               handleList={this.handleList}
+              handleSelect={this.handleSelect}
+              gender={gender}
+              rainbow={rainbow}
             />
           </Route>
           <Route exact path="/detail/:id" render={this.renderDetails} />
