@@ -27,7 +27,7 @@ class App extends React.Component {
       characterList: [],
       inputValue: "",
       gender: "",
-      rainbow: false,
+      // rainbow: false,
     };
   }
 
@@ -43,14 +43,14 @@ class App extends React.Component {
     // this.handleList(inputVal);
   }
 
-  handleList(inputVal) {
-    const updatedList = this.state.characterList.filter((item) => {
-      return item.name.toLowerCase().includes(inputVal.toLowerCase());
-    });
-    this.setState((prevState) => {
-      return { ...prevState, characterList: updatedList };
-    });
-  }
+  // handleList(inputVal) {
+  //   const updatedList = this.state.characterList.filter((item) => {
+  //     return item.name.toLowerCase().includes(inputVal.toLowerCase());
+  //   });
+  //   this.setState((prevState) => {
+  //     return { ...prevState, characterList: updatedList };
+  //   });
+  // }
 
   renderDetails(props) {
     const routeId = parseInt(props.match.params.id);
@@ -102,7 +102,7 @@ class App extends React.Component {
   // }
 
   render() {
-    const { characterList, inputValue, gender, rainbow } = this.state;
+    const { characterList, inputValue, gender } = this.state;
     return (
       <div className="app">
         <Switch>
@@ -121,7 +121,7 @@ class App extends React.Component {
               handleList={this.handleList}
               handleSelect={this.handleSelect}
               gender={gender}
-              rainbow={rainbow}
+              // rainbow={rainbow}
             />
           </Route>
           <Route exact path="/detail/:id" render={this.renderDetails} />
